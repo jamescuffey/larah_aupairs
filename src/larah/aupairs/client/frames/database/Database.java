@@ -1,10 +1,12 @@
-package larah.aupairs.database;
+package larah.aupairs.client.frames.database;
 
 /**
  *
  * @author James
  */
 public abstract class Database {
+    
+    public abstract String connection();
     
     /**
      * Creates the database connection.

@@ -1,4 +1,4 @@
-package larah.aupairs.task;
+package larah.aupairs.client.task;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

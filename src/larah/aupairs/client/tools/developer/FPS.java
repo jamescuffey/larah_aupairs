@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package larah.aupairs.developer;
+package larah.aupairs.client.tools.developer;
 
 import java.awt.BorderLayout;
 import java.awt.MouseInfo;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import larah.aupairs.client.Constants;
 
 /**
  *
@@ -29,15 +29,16 @@ public class FPS {
     private int framesInCurrentSecond = 0;
 
     public FPS() {
-       panel.add(frameLabel, BorderLayout.SOUTH);
-       panel.add(cursorLabel, BorderLayout.CENTER);
-        
-       Jframe.add(panel);
-       Jframe.setLocationRelativeTo(null);
-        
-       Jframe.setSize(250, 65);
-                
-       Jframe.setVisible(true);
+        if(Constants.DEBUG_MODE) {
+            panel.add(frameLabel, BorderLayout.SOUTH);
+            panel.add(cursorLabel, BorderLayout.CENTER);        
+            Jframe.add(panel);
+            Jframe.setLocationRelativeTo(null);        
+            Jframe.setSize(250, 65);
+            Jframe.setVisible(true);
+        } else {
+            Jframe.setVisible(false);
+        }
     }
     
     public int notifyDeveloper() {

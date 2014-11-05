@@ -1,5 +1,6 @@
-package larah.aupairs;
+package larah.aupairs.client;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,6 +17,11 @@ public class Constants {
     private Constants() {
         
     }   
+    
+    /**
+     * The name of the application.
+     */
+    public static final String APPLICATION_NAME = "Larah aupairs";
 
     /**
      * The gif used for the loading interface.
@@ -38,11 +44,28 @@ public class Constants {
     public static final String FILE_NAME = "login_data.cfg";
     
     /**
-     * Checks whether for application is in debug mode.
+     * Checks whether the application is in debug mode.
      */
     public static boolean DEBUG_MODE = true;
+
+    /**
+     * The path to the icon used to represent the successful action.
+     */
+    public static final String SUCCESSFUL = "images/success.png";
     
-    public static final int TIMER_AMOUNT = 15;
+    /**
+     * The icon used to represent the successful action.
+     */
+    public static final Icon SUCCESSFUL_ACTION = new ImageIcon(SUCCESSFUL);
     
+   /**
+     * The path to the icon used to represent the spanner action.
+     */
+    public static final String SPANNER = "images/spanner.png";
+    
+    /**
+     * The icon used to represent the spanner action.
+     */
+    public static final Icon SPANNER_ACTION = new ImageIcon(SPANNER);
 
 }

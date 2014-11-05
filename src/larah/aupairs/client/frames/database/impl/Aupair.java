@@ -1,7 +1,7 @@
-package larah.aupairs.database.impl;
+package larah.aupairs.client.frames.database.impl;
 
-import larah.aupairs.Constants;
-import larah.aupairs.database.Database;
+import larah.aupairs.client.Constants;
+import larah.aupairs.client.frames.database.Database;
 
 /**
  *
@@ -26,6 +26,11 @@ public class Aupair extends Database {
     @Override
     public double version() {
         return Constants.AUPAIR_VERSION;
+    }
+
+    @Override
+    public String connection() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     

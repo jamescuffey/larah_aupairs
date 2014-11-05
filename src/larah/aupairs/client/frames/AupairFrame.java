@@ -2,10 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package larah.aupairs.frames;
+package larah.aupairs.client.frames;
 
 import java.awt.event.ActionEvent;
-import larah.aupairs.database.impl.Aupair;
+import javax.swing.JFrame;
+import larah.aupairs.client.Constants;
+import larah.aupairs.client.Main;
+import larah.aupairs.client.frames.database.impl.Aupair;
+import org.nikkii.alertify4j.Alertify;
+import org.nikkii.alertify4j.AlertifyBuilder;
+import org.nikkii.alertify4j.AlertifyType;
 
 /**
  *
@@ -22,7 +28,8 @@ public class AupairFrame extends javax.swing.JFrame {
      * Creates new form AupairFrame
      */
     public AupairFrame() {
-        initComponents();
+        this.initComponents();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Larah aupairs - please fill in the appropriate details about the aupair.");
     }
 
@@ -420,6 +427,8 @@ public class AupairFrame extends javax.swing.JFrame {
         aupair.religion = religionTextField.getText();
         aupair.profession = professionTextField.getText();
         aupair.experience = houseworkTextField.getText();
+        
+        Alertify.show(new AlertifyBuilder().type(AlertifyType.SUCCESS).icon(Constants.SUCCESSFUL_ACTION).text("You have successfully filled out an application!").autoClose(5000).build());
     }//GEN-LAST:event_completeButtonActionPerformed
 
     
