@@ -1,8 +1,9 @@
 package larah.aupairs;
 
 import larah.aupairs.client.Constants;
-import larah.aupairs.client.Main;
+import larah.aupairs.client.frames.Main;
 import larah.aupairs.client.Utilities;
+import larah.aupairs.client.frames.alert.Alert;
 import larah.aupairs.client.task.Task;
 import larah.aupairs.client.task.TaskScheduler;
 import larah.aupairs.client.task.impl.GarbageCollector;
@@ -38,20 +39,20 @@ public class Engine {
      */
      public static void main(String...args) { 
         engine = new Main();    
-	Logger.log("Prompting " + Constants.APPLICATION_NAME + "...");        
+        Logger.log("Prompting " + Constants.APPLICATION_NAME + "...");        
         engine.run();        
-        Logger.log(Constants.APPLICATION_NAME + " successfully running.");
+        Logger.log(Constants.APPLICATION_NAME + " successfully running...");
         
         getTaskScheduler().schedule(new Task() {
-	@Override
-	protected void execute() { 
-            Utilities.generateTime();
+            @Override
+            protected void execute() { 
+                Utilities.generateTime();
             
-            if(Constants.DEBUG_MODE) {
-                Main.getFramesPerSecond().display(); 
-            } 
-          }
-        });  
+                if(Constants.DEBUG_MODE) {
+                    Main.getFramesPerSecond().display(); 
+                } 
+            }
+        }); 
         scheduler.schedule(new GarbageCollector());
     }
 

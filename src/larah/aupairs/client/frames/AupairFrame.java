@@ -7,7 +7,8 @@ package larah.aupairs.client.frames;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import larah.aupairs.client.Constants;
-import larah.aupairs.client.Main;
+import larah.aupairs.client.Utilities;
+import larah.aupairs.client.frames.alert.Alert;
 import larah.aupairs.client.frames.database.impl.Aupair;
 import org.nikkii.alertify4j.Alertify;
 import org.nikkii.alertify4j.AlertifyBuilder;
@@ -419,6 +420,7 @@ public class AupairFrame extends javax.swing.JFrame {
     private void nationalityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         
     }
+    
     private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed
         aupair.name = nameTextField.getText();
         aupair.surname = surnameTextField.getText();
@@ -428,7 +430,7 @@ public class AupairFrame extends javax.swing.JFrame {
         aupair.profession = professionTextField.getText();
         aupair.experience = houseworkTextField.getText();
         
-        Alertify.show(new AlertifyBuilder().type(AlertifyType.SUCCESS).icon(Constants.SUCCESSFUL_ACTION).text("You have successfully filled out an application!").autoClose(5000).build());
+        Alert.setAlert(1);
     }//GEN-LAST:event_completeButtonActionPerformed
 
     

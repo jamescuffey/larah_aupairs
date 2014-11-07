@@ -47,25 +47,4 @@ public class Constants {
      * Checks whether the application is in debug mode.
      */
     public static boolean DEBUG_MODE = true;
-
-    /**
-     * The path to the icon used to represent the successful action.
-     */
-    public static final String SUCCESSFUL = "images/success.png";
-    
-    /**
-     * The icon used to represent the successful action.
-     */
-    public static final Icon SUCCESSFUL_ACTION = new ImageIcon(SUCCESSFUL);
-    
-   /**
-     * The path to the icon used to represent the spanner action.
-     */
-    public static final String SPANNER = "images/spanner.png";
-    
-    /**
-     * The icon used to represent the spanner action.
-     */
-    public static final Icon SPANNER_ACTION = new ImageIcon(SPANNER);
-
 }
