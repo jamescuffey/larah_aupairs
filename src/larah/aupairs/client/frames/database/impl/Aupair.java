@@ -8,6 +8,15 @@ import larah.aupairs.client.frames.database.Database;
  * @author James
  */
 public class Aupair extends Database {
+    
+    public static Aupair SINGLETON;
+    
+    public static Aupair getSingleton() {
+        if(SINGLETON == null) {
+            SINGLETON = new Aupair();
+        }   
+        return SINGLETON;   
+    }
         
     public String name, surname, nationality, telephone, religion, profession, experience;
     

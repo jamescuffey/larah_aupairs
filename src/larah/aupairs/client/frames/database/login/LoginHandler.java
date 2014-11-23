@@ -1,4 +1,4 @@
-package larah.aupairs.client.frames.login;
+package larah.aupairs.client.frames.database.login;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

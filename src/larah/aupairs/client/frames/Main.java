@@ -1,18 +1,16 @@
 package larah.aupairs.client.frames;
 
-import larah.aupairs.client.Constants;
 import java.awt.*;
-import larah.aupairs.client.frames.login.LoginHandler;
+import larah.aupairs.client.frames.database.login.LoginHandler;
 import java.net.URL;
 import javax.swing.*;
 import larah.aupairs.Engine;
 import larah.aupairs.client.Constants;
+import larah.aupairs.client.Utilities;
 import larah.aupairs.client.tools.developer.FPS;
 import larah.aupairs.client.frames.AupairFrame;
 import larah.aupairs.client.task.Task;
-import org.nikkii.alertify4j.Alertify;
-import org.nikkii.alertify4j.AlertifyBuilder;
-import org.nikkii.alertify4j.AlertifyType;
+import larah.aupairs.client.tools.developer.BlurredLightCells;
 
 /**
  *
@@ -35,7 +33,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     public static FPS getFramesPerSecond() {
         return frames;
     }
-
+    
     /**
      * Creates new form Main.
      */
@@ -43,15 +41,10 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage("images/salutation.png"));
-        setTrayIcon();
+        Utilities.setTrayIcon();
+        jPanel2.setOpaque(false); 
     }
-    
-    private void setTrayIcon() {
-        PopupMenu popup = new PopupMenu();
-        URL url = System.class.getResource("images/salutation.png");
-        Image img = Toolkit.getDefaultToolkit().getImage(url);
-        final TrayIcon trayIcon = new TrayIcon(img, "Larah aupairs", popup);
-    }
+   
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,7 +77,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         setTitle("Larah aupairs");
         setName("mainFrame"); // NOI18N
         setResizable(false);
-
+		
         labelTime.setToolTipText("The date and time.");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Client options\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 14))); // NOI18N
@@ -177,12 +170,12 @@ public final class Main extends javax.swing.JFrame implements Runnable {
                 .addComponent(websiteButton)
                 .addContainerGap())
         );
-
+		add(new BlurredLightCells(60, 600, 600));
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
     private void buttonNewAupairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewAupairActionPerformed
-        Engine.scheduler.schedule(new Task(5) {
+        Engine.scheduler.schedule(new Task(2) {
 	@Override
 	protected void execute() {  
                 new AupairFrame().setVisible(true);
@@ -251,7 +244,6 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     private javax.swing.JLabel labelTime;
     private javax.swing.JButton websiteButton;
     // End of variables declaration//GEN-END:variables
-      
 
 }
 

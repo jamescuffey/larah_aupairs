@@ -3,7 +3,6 @@ package larah.aupairs;
 import larah.aupairs.client.Constants;
 import larah.aupairs.client.frames.Main;
 import larah.aupairs.client.Utilities;
-import larah.aupairs.client.frames.alert.Alert;
 import larah.aupairs.client.task.Task;
 import larah.aupairs.client.task.TaskScheduler;
 import larah.aupairs.client.task.impl.GarbageCollector;
@@ -18,7 +17,7 @@ public class Engine {
     /**
      * Instance of main class.
      */
-    private static Main engine; 
+    private static Main main; 
     
     /**
      * Initialises the task scheduler class instance.
@@ -37,23 +36,29 @@ public class Engine {
      * Our main entry point to the application.
      * @param args 
      */
-     public static void main(String...args) { 
-        engine = new Main();    
-        Logger.log("Prompting " + Constants.APPLICATION_NAME + "...");        
-        engine.run();        
+     public static void main(String...args) {
+         //initalise the main instance.
+        main = new Main();  
+        
+        Logger.log("Prompting " + Constants.APPLICATION_NAME + "...");
+        
+        //run the main class.
+        main.run();        
         Logger.log(Constants.APPLICATION_NAME + " successfully running...");
         
+        //schedule new tasks called every ms.
         getTaskScheduler().schedule(new Task() {
             @Override
             protected void execute() { 
                 Utilities.generateTime();
-            
+       
                 if(Constants.DEBUG_MODE) {
                     Main.getFramesPerSecond().display(); 
                 } 
             }
-        }); 
-        scheduler.schedule(new GarbageCollector());
+        });
+  
+        //schedule the new garbage collector.
+        scheduler.schedule(new GarbageCollector());   
     }
-
 }

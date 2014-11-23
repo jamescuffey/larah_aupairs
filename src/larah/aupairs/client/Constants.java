@@ -1,6 +1,5 @@
 package larah.aupairs.client;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -27,6 +26,11 @@ public class Constants {
      * The gif used for the loading interface.
      */
     public static final ImageIcon loading = new ImageIcon("images/ajax-loader.gif");
+      
+    /**
+     * The path for the tray icon image.
+     */
+    public static final String ABSOLUTE_PATH = "images/salutation.png";
     
     /**
      * The version of the aupair form.
