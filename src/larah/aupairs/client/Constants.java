@@ -25,7 +25,7 @@ public class Constants {
     /**
      * The gif used for the loading interface.
      */
-    public static final ImageIcon loading = new ImageIcon("images/ajax-loader.gif");
+   //public static final ImageIcon loading = new ImageIcon("images/ajax-loader.gif");
       
     /**
      * The path for the tray icon image.
@@ -50,5 +50,19 @@ public class Constants {
     /**
      * Checks whether the application is in debug mode.
      */
-    public static boolean DEBUG_MODE = true;
+    public static boolean DEBUG_MODE = false;
+    
+    /**
+     * All of our administrators within the system.
+     */
+    public static final String[] ADMINISTRATORS = {"nicola"};
+    
+    /**
+     * The rights within the system.
+     * 
+     * 0 = regular user
+     * 1 = administrator
+     * 
+     */
+    public static final int SYSTEM_RIGHTS = -1;
 }

@@ -24,7 +24,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     /**
      * Initialises the frames per second class instance.
      */
-    private static FPS frames = new FPS();
+    private static final FPS frames = new FPS();
     
     /**
      * Gets the frames per second class instance.

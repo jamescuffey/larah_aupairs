@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import larah.aupairs.client.Constants;
+import larah.aupairs.client.Utilities;
 import larah.aupairs.client.frames.Main;
 
 /**
@@ -148,6 +149,8 @@ public class LoginHandler extends javax.swing.JFrame {
         if(usernameField.equals(username) && passwordField.equals(password)) {
             new Main().setVisible(true);
             this.setVisible(false);
+            
+            Utilities.setAccountType(username);
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect username or password, please try again!", "Incorrect details", JOptionPane.WARNING_MESSAGE);
         }
