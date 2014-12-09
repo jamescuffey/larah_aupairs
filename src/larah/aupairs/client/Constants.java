@@ -56,13 +56,4 @@ public class Constants {
      * All of our administrators within the system.
      */
     public static final String[] ADMINISTRATORS = {"nicola"};
-    
-    /**
-     * The rights within the system.
-     * 
-     * 0 = regular user
-     * 1 = administrator
-     * 
-     */
-    public static final int SYSTEM_RIGHTS = -1;
 }

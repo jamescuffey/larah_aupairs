@@ -175,13 +175,17 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
    
     private void buttonNewAupairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewAupairActionPerformed
-        Engine.scheduler.schedule(new Task(2) {
-	@Override
-	protected void execute() {  
+        if(Utilities.rights.getRights() != 1) {
+            Utilities.setAlert(3);
+        } else {
+            Engine.scheduler.schedule(new Task(2) {
+            @Override
+            protected void execute() {  
                 new AupairFrame().setVisible(true);
                 super.stop();
             }
         });
+        }
     }//GEN-LAST:event_buttonNewAupairActionPerformed
   
     private void buttonMatchAupairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMatchAupairActionPerformed
