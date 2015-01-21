@@ -64,25 +64,7 @@ public class Utilities {
                 System.out.println("This alert doesn't exist.");
         }
     }
-    
-    /**
-     * Creates what account type the user is.
-     * @param parser 
-     */
-    public static void setAccountType(String parser) {
-        for(int i = 0; i < Constants.ADMINISTRATORS.length; i = i + 1) {
-            if(parser.equals(Constants.ADMINISTRATORS[i])) {
-               // getRights().setSystemRights(1);
-                rights.setRights(1);
-                System.out.println("Administrative personnel accessed the system.");         
-            } else {
-                //getRights().setSystemRights(0);
-                rights.setRights(1);
-                System.out.println("Non-administrative personnel accessed the system.");
-            }
-
-        }
-    }
+  
     
     /**
      * Generates a new key per entity.

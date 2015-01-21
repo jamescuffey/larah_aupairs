@@ -1,13 +1,9 @@
-package larah.aupairs.client.frames.database.login;
+package larah.aupairs.client.frames;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import larah.aupairs.client.Constants;
-import larah.aupairs.client.Utilities;
+import static larah.aupairs.client.Utilities.rights;
 import larah.aupairs.client.frames.Main;
 
 /**
@@ -127,33 +123,20 @@ public class LoginHandler extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void readFile() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(Constants.FILE_NAME))) {
-            StringBuilder sb = new StringBuilder();
-            username = reader.readLine();
-            sb.append("\n");
-            password = reader.readLine();
-            reader.close();
-        }
-    }
         
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         String usernameField = usernameTextField.getText();
         String passwordField = passwordTextField.getText();
-        try {
-            this.readFile();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        if(usernameField.equals(username) && passwordField.equals(password)) {
-            new Main().setVisible(true);
-            this.setVisible(false);
-            
-            Utilities.setAccountType(username);
+
+        if(Arrays.asList(Constants.ADMINISTRATORS).contains(usernameField)) {
+                rights.setRights(1);
         } else {
-            JOptionPane.showMessageDialog(null, "Incorrect username or password, please try again!", "Incorrect details", JOptionPane.WARNING_MESSAGE);
-        }
+                rights.setRights(0);
+                JOptionPane.showMessageDialog (null, "As you are a guest, you will not be able to access all features of the system.", "Guest logged!", JOptionPane.WARNING_MESSAGE);
+       }
+ 
+        new Main().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**

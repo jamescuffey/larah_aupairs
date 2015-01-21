@@ -43,17 +43,12 @@ public class Constants {
     public static final double FAMILY_VERSION = 1.0;
     
     /**
-     * Our file name to hold the data.
-     */
-    public static final String FILE_NAME = "login_data.cfg";
-    
-    /**
      * Checks whether the application is in debug mode.
      */
-    public static boolean DEBUG_MODE = false;
+    public static final boolean DEBUG_MODE = false;
     
     /**
      * All of our administrators within the system.
      */
-    public static final String[] ADMINISTRATORS = {"nicola"};
+    public static final String[] ADMINISTRATORS = {"nicola345"};
 }

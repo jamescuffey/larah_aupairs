@@ -4,6 +4,7 @@ import java.util.Random;
 import larah.aupairs.client.Constants;
 import larah.aupairs.client.frames.Main;
 import larah.aupairs.client.Utilities;
+import larah.aupairs.client.frames.database.Database;
 import larah.aupairs.client.task.Task;
 import larah.aupairs.client.task.TaskScheduler;
 import larah.aupairs.client.task.impl.GarbageCollector;
