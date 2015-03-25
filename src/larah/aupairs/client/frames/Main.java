@@ -10,6 +10,7 @@ import larah.aupairs.client.tools.developer.FPS;
 import larah.aupairs.client.task.Task;
 import larah.aupairs.client.tools.developer.BlurredLightCells;
 
+
 /**
  *
  * @author James
@@ -40,7 +41,9 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setIconImage(Toolkit.getDefaultToolkit().getImage("images/salutation.png"));
         Utilities.setTrayIcon();
-        jPanel2.setOpaque(false); 
+        
+        jPanel2.setOpaque(false);
+  
     }
    
 
@@ -57,6 +60,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         buttonNewAupair = new javax.swing.JButton();
         labelDate = new javax.swing.JLabel();
         websiteButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -119,7 +123,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147))
+                .addGap(138, 138, 138))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,9 +133,9 @@ public final class Main extends javax.swing.JFrame implements Runnable {
                     .addComponent(buttonNewFamily)
                     .addComponent(buttonMatchAupair)
                     .addComponent(buttonNewAupair))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(labelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         buttonNewFamily.getAccessibleContext().setAccessibleName("buttonNewFamily");
@@ -146,20 +150,29 @@ public final class Main extends javax.swing.JFrame implements Runnable {
             }
         });
 
+        jButton1.setText("Modify existing records");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
                             .addComponent(labelTime)
                             .addGap(15, 15, 15))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(websiteButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(websiteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,15 +180,15 @@ public final class Main extends javax.swing.JFrame implements Runnable {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
                 .addComponent(labelTime)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                .addComponent(websiteButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(websiteButton)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
-
 		add(new BlurredLightCells(60, 600, 600));
-		
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
@@ -194,7 +207,17 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     }//GEN-LAST:event_buttonNewAupairActionPerformed
   
     private void buttonMatchAupairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMatchAupairActionPerformed
-
+        if(Utilities.rights.getRights() != 1) {
+            Utilities.setAlert(3);
+        } else {
+            Engine.scheduler.schedule(new Task(2) {
+            @Override
+            protected void execute() {  
+                new MatchFrame().setVisible(true);
+                super.stop();
+            }
+        });
+        }
     }//GEN-LAST:event_buttonMatchAupairActionPerformed
 
     private void websiteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_websiteButtonActionPerformed
@@ -208,16 +231,19 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     private void buttonNewFamilyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewFamilyActionPerformed
         if(Utilities.rights.getRights() != 1) {
             Utilities.setAlert(3);
-        } else {
-            Engine.scheduler.schedule(new Task(2) {
-            @Override
-            protected void execute() {  
-                new FamilyFrame().setVisible(true);
-                super.stop();
-            }
-        });
+        } else { 
+            new FamilyFrame().setVisible(true);
         }
     }//GEN-LAST:event_buttonNewFamilyActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(Utilities.rights.getRights() != 1) {
+            Utilities.setAlert(3);
+        } else { 
+            //new ModifyFrame().setVisible(true);
+            JOptionPane.showMessageDialog(null, "coming soon!");
+        }    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     @Override
     public void run() {
@@ -226,7 +252,8 @@ public final class Main extends javax.swing.JFrame implements Runnable {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     //javax.swing.UIManager.put("nimbusBase", Color.lightGray);
-                    UIManager.put("nimbusBlueGrey", Color.getHSBColor(242,242,189));
+                    //UIManager.put("nimbusBlueGrey", Color.getHSBColor(242,242,189));
+                    UIManager.put("nimbusBlueGrey", new Color(210,198,224));
                     break;
                 }
             }
@@ -247,6 +274,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
             public void run() {
                 if(Constants.DEBUG_MODE) {
                     new Main().setVisible(true);
+                    Utilities.rights.setRights(1);
                 } else {
                     new LoginHandler().setVisible(true);
                 }
@@ -260,6 +288,7 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     public javax.swing.JButton buttonNewAupair;
     private javax.swing.JButton buttonNewFamily;
     private javax.swing.ButtonGroup group;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

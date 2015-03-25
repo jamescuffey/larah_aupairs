@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import larah.aupairs.client.frames.alert.impl.*;
 
 /**
@@ -31,6 +32,9 @@ public class Utilities {
     private Utilities() {
         
     }
+   
+    
+      
 
     public static void generateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

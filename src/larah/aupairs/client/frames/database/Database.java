@@ -6,7 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import larah.aupairs.client.Constants;
 import larah.aupairs.client.frames.AupairFrame;
+import larah.aupairs.client.frames.FamilyFrame;
 
 /**
  *
@@ -14,9 +19,6 @@ import larah.aupairs.client.frames.AupairFrame;
  */
 public class Database {
     
-    private static final String host = "jdbc:mysql://localhost:3306/larah aupairs";
-    private static final String username = "root";
-    private static final String password = "";
     
     public static void connect() {
         try {
@@ -30,9 +32,9 @@ public class Database {
         connect();
         
         try {      
-            Connection connection = DriverManager.getConnection(host, username, password);
+            Connection connection = DriverManager.getConnection(Constants.HOST, Constants.USERNAME, Constants.PASSWORD);
             //Statement statement = connection.createStatement();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO tblaupairs (Name, Surname, Nationality, Telephone, Religion, Profession, Experience, Smoke, Drive, Convictions, SpokenAbility, Swim, Animals, Vegetarian, Children, Medication, Housework, Confident, FirstAid, Flexible) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO tblaupairs (Name, Surname, Nationality, Telephone, Religion, Profession, Experience, Smoke, Drive, Convictions, SpokenAbility, Swim, Animals, Vegetarian, Children, Medication, Housework, Confident, FirstAid, Flexible, Id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             statement.setString(1, AupairFrame.username);
             statement.setString(2, AupairFrame.surname);
@@ -53,30 +55,73 @@ public class Database {
             statement.setString(17, AupairFrame.housework);
             statement.setString(18, AupairFrame.charge);
             statement.setString(19, AupairFrame.aid);
-            statement.setString(20, AupairFrame.flexible);                                                
+            statement.setString(20, AupairFrame.flexible);   
+            statement.setInt(21, AupairFrame.id);
 
 
             statement.executeUpdate();
             
             statement.close();
             connection.close();
-            System.out.println("Wrote to database.");  
+            System.out.println("Wrote to aupair database.");  
         } catch(SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    public void writeToFamily() {
+     
+    public static void writeToFamily() {
+        connect();
         
+        try {      
+            Connection connection = DriverManager.getConnection(Constants.HOST, Constants.USERNAME, Constants.PASSWORD);
+            //Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO tblfamilies (Name, Telephone, Address, Information, Hours, Driver, Nationality, Smoker, Animals, FirstAid, Children, Id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+            
+            statement.setString(1, FamilyFrame.familyName);
+            statement.setString(2, FamilyFrame.familyTelephone);
+            statement.setString(3, FamilyFrame.familyAddress);
+            statement.setString(4, FamilyFrame.additionalInformation);
+            statement.setString(5, FamilyFrame.requiredHours);
+            statement.setString(6, FamilyFrame.driver);
+            statement.setString(7, FamilyFrame.nationality);
+            statement.setString(8, FamilyFrame.smoker);
+            statement.setString(9, FamilyFrame.animalFriendly);
+            statement.setString(10, FamilyFrame.firstAidFamiliar);
+            statement.setString(11, FamilyFrame.childrenToCare);   
+            statement.setInt(12, FamilyFrame.id);
+
+
+            statement.executeUpdate();
+            
+            statement.close();
+            connection.close();
+            System.out.println("Wrote to family database.");  
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }     
     }
     
-    public void readFromAupair() {
+    public static void writeToMatch(Date dateMatched, int matchId, String aupairName, String familyName) {
+        connect();
         
+        try {      
+            Connection connection = DriverManager.getConnection(Constants.HOST, Constants.USERNAME, Constants.PASSWORD);
+            //Statement statement = connection.createStatement();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO tblmatches (DateMatched, MatchId, AupairName, FamilyName) VALUES(?,?,?,?)");
+            
+            statement.setDate(1, new java.sql.Date( dateMatched.getTime()));
+            statement.setInt(2, matchId);
+            statement.setString(3, aupairName);
+            statement.setString(4, familyName);
+
+            statement.executeUpdate();
+            
+            statement.close();
+            connection.close();
+            System.out.println("Wrote to match database.");  
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }     
     }
-    
-    public void readFromFamily() {
-        
-    }
- 
     
 }

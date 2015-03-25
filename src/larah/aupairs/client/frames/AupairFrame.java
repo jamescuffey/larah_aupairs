@@ -4,9 +4,13 @@
  */
 package larah.aupairs.client.frames;
 
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 import larah.aupairs.client.Constants;
 import larah.aupairs.client.Utilities;
-import larah.aupairs.client.frames.alert.Alert;
 import larah.aupairs.client.frames.database.Database;
 
 
@@ -16,15 +20,20 @@ import larah.aupairs.client.frames.database.Database;
  */
 public class AupairFrame extends javax.swing.JFrame {
     
-
+    public static AupairFrame aupairFrame = new AupairFrame();
+    public static AupairFrame getAupairFrame() {
+        return aupairFrame;
+    }
     /**
      * Creates new form AupairFrame
      */
     public AupairFrame() {
         initComponents();
         setTitle("Larah aupairs - please fill in the appropriate details about the aupair.");
-        frameVersion.setText("Frame aupair version: " + Constants.AUPAIR_VERSION);
+        getContentPane().setBackground(new Color(210,198,224));
     }
+
+  
 
     /**
      * This method is called from within the constructor to initialise the form.
@@ -81,12 +90,12 @@ public class AupairFrame extends javax.swing.JFrame {
         spokenAbilityComboBox = new javax.swing.JComboBox();
         completeLabel = new java.awt.Label();
         buttonMainMenu = new javax.swing.JButton();
-        frameVersion = new java.awt.Label();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        completeButton.setBackground(new java.awt.Color(210, 198, 224));
         completeButton.setText("Complete");
         completeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +103,9 @@ public class AupairFrame extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(220, 198, 224));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Basic aupair information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15))); // NOI18N
+        jPanel1.setToolTipText("");
 
         telephoneTextField.setPreferredSize(new java.awt.Dimension(80, 20));
 
@@ -126,10 +137,12 @@ public class AupairFrame extends javax.swing.JFrame {
             }
         });
 
+        label1.setBackground(new java.awt.Color(220, 198, 224));
         label1.setText("Name:");
 
         surnameTextField.setPreferredSize(new java.awt.Dimension(80, 20));
 
+        label2.setBackground(new java.awt.Color(220, 198, 224));
         label2.setText("Surname:");
 
         nationalityTextField.setPreferredSize(new java.awt.Dimension(80, 20));
@@ -139,6 +152,7 @@ public class AupairFrame extends javax.swing.JFrame {
             }
         });
 
+        label3.setBackground(new java.awt.Color(220, 198, 224));
         label3.setText("Nationality:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -206,6 +220,7 @@ public class AupairFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(220, 198, 224));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Further aupair information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 15))); // NOI18N
 
         label10.setText("Spoken ability good:");
@@ -400,8 +415,10 @@ public class AupairFrame extends javax.swing.JFrame {
                     .addComponent(flexibleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        completeLabel.setBackground(new java.awt.Color(210, 198, 224));
         completeLabel.setText("Please fill out both forms before clicking 'Complete'.");
 
+        buttonMainMenu.setBackground(new java.awt.Color(210, 198, 224));
         buttonMainMenu.setText("Back to main menu");
         buttonMainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,22 +433,19 @@ public class AupairFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(completeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonMainMenu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(completeButton))))
+                                .addComponent(completeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(frameVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addGap(34, 34, 34)
+                        .addComponent(completeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,15 +454,13 @@ public class AupairFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)
                         .addComponent(completeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(completeButton)
-                            .addComponent(buttonMainMenu))
-                        .addGap(42, 42, 42)
-                        .addComponent(frameVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
+                            .addComponent(buttonMainMenu)
+                            .addComponent(completeButton))
+                        .addGap(117, 117, 117))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -478,9 +490,9 @@ public class AupairFrame extends javax.swing.JFrame {
         
     }
     
-    public static String username, surname, nationality, telephone, religion, profession, houseworkVariable;
-    public static String smoke, drive, criminal, spoken, swim, animal, vegetarian;
-    public static String care, medication, housework, charge, aid, flexible;
+    public static String username, surname, nationality, telephone, religion, profession, houseworkVariable, 
+            smoke, drive, criminal, spoken, swim, animal, vegetarian, care, medication, housework, charge, aid, flexible;
+    public static int id;
     
     private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed
 
@@ -504,11 +516,26 @@ public class AupairFrame extends javax.swing.JFrame {
         charge = chargeComboBox.getSelectedItem().toString();
         aid = aidComboBox.getSelectedItem().toString();
         flexible = flexibleComboBox.getSelectedItem().toString();
-  
-        Database.writeToAupair();
-        Utilities.setAlert(1);
+        id =  id + 1;        
+        presenceCheck("Please enter an input!");
     }//GEN-LAST:event_completeButtonActionPerformed
 
+    public void presenceCheck(String message) {
+        if("".equals(username) || "".equals(surname) || "".equals(nationality) || "".equals(telephone) || "".equals(religion) || "".equals(profession)
+                || "".equals(houseworkVariable)) {
+            
+            //display error message
+            JOptionPane.showMessageDialog(null, message, "Error: ", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            Database.writeToAupair();                
+            Utilities.setAlert(1);
+        }     
+    }
+    
+    public void inputCheck() {
+        
+    }
+        
     private void buttonMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMainMenuActionPerformed
             setVisible(false);          
     }//GEN-LAST:event_buttonMainMenuActionPerformed
@@ -565,23 +592,22 @@ public class AupairFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox aidComboBox;
-    public javax.swing.JComboBox animalComboBox;
-    public javax.swing.JButton buttonMainMenu;
-    public javax.swing.JComboBox careComboBox;
-    public javax.swing.JComboBox chargeComboBox;
+    private javax.swing.JComboBox aidComboBox;
+    private javax.swing.JComboBox animalComboBox;
+    private javax.swing.JButton buttonMainMenu;
+    private javax.swing.JComboBox careComboBox;
+    private javax.swing.JComboBox chargeComboBox;
     private javax.swing.JButton completeButton;
     private java.awt.Label completeLabel;
-   public javax.swing.JComboBox criminalComboBox;
-    public javax.swing.JComboBox driveComboBox;
-    public javax.swing.JComboBox flexibleComboBox;
-    public java.awt.Label frameVersion;
-    public javax.swing.JComboBox houseworkComboBox;
-    public java.awt.TextField houseworkTextField;
+    private javax.swing.JComboBox criminalComboBox;
+    private javax.swing.JComboBox driveComboBox;
+    private javax.swing.JComboBox flexibleComboBox;
+    private javax.swing.JComboBox houseworkComboBox;
+    private java.awt.TextField houseworkTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private java.awt.Label label1;
+    public java.awt.Label label1;
     private java.awt.Label label10;
     private java.awt.Label label11;
     private java.awt.Label label12;
@@ -601,16 +627,16 @@ public class AupairFrame extends javax.swing.JFrame {
     private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
-    public javax.swing.JComboBox medicationComboBox;
-    public static java.awt.TextField nameTextField;
-    public java.awt.TextField nationalityTextField;
-    public java.awt.TextField professionTextField;
-    public java.awt.TextField religionTextField;
-  public javax.swing.JComboBox smokeComboBox;
-   public javax.swing.JComboBox spokenAbilityComboBox;
-    public java.awt.TextField surnameTextField;
-   public javax.swing.JComboBox swimComboBox;
-    public java.awt.TextField telephoneTextField;
-    public javax.swing.JComboBox vegetarianComboBox;
+    private javax.swing.JComboBox medicationComboBox;
+    private java.awt.TextField nameTextField;
+    private java.awt.TextField nationalityTextField;
+    private java.awt.TextField professionTextField;
+    private java.awt.TextField religionTextField;
+    private javax.swing.JComboBox smokeComboBox;
+    private javax.swing.JComboBox spokenAbilityComboBox;
+    private java.awt.TextField surnameTextField;
+    private javax.swing.JComboBox swimComboBox;
+    private java.awt.TextField telephoneTextField;
+    private javax.swing.JComboBox vegetarianComboBox;
     // End of variables declaration//GEN-END:variables
 }

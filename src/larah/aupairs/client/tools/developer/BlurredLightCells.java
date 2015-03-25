@@ -91,7 +91,7 @@ public final class BlurredLightCells extends JPanel {
         int w = getWidth();
         int h = getHeight();
         final Graphics2D g2 = (Graphics2D) g;
-        GradientPaint gp = new GradientPaint(-w, -h, Color.PINK, w, h, Color.PINK);
+        GradientPaint gp = new GradientPaint(-w, -h, Color.WHITE, w, h, Color.PINK);
         g2.setPaint(gp);
         g2.fillRect(0, 0, w, h);
         for (LightCell cell : lightcells) {

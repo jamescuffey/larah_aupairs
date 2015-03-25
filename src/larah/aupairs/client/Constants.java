@@ -17,6 +17,13 @@ public class Constants {
         
     }   
     
+        
+    public static final String HOST = "jdbc:mysql://localhost:3306/larah aupairs";
+        
+    public static final String USERNAME = "root";
+    
+    public static final String PASSWORD = "";
+
     /**
      * The name of the application.
      */
@@ -32,6 +39,8 @@ public class Constants {
      */
     public static final String ABSOLUTE_PATH = "images/salutation.png";
     
+    public static final String AUPAIR_BACKGROUND = "images/background.png";
+    
     /**
      * The version of the aupair form.
      */
@@ -45,10 +54,10 @@ public class Constants {
     /**
      * Checks whether the application is in debug mode.
      */
-    public static final boolean DEBUG_MODE = false;
+    public static final boolean DEBUG_MODE = true;
     
     /**
      * All of our administrators within the system.
      */
-    public static final String[] ADMINISTRATORS = {"nicola345"};
+    public static final String[] ADMINISTRATORS = {"12345"};
 }
