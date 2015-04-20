@@ -60,7 +60,6 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         buttonNewAupair = new javax.swing.JButton();
         labelDate = new javax.swing.JLabel();
         websiteButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -150,29 +149,19 @@ public final class Main extends javax.swing.JFrame implements Runnable {
             }
         });
 
-        jButton1.setText("Modify existing records");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(labelTime)
                             .addGap(15, 15, 15))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(websiteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                    .addComponent(websiteButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,12 +172,10 @@ public final class Main extends javax.swing.JFrame implements Runnable {
                 .addGap(27, 27, 27)
                 .addComponent(labelTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(websiteButton)
-                    .addComponent(jButton1))
+                .addComponent(websiteButton)
                 .addContainerGap())
         );
-		add(new BlurredLightCells(60, 600, 600));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
@@ -236,15 +223,6 @@ public final class Main extends javax.swing.JFrame implements Runnable {
         }
     }//GEN-LAST:event_buttonNewFamilyActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(Utilities.rights.getRights() != 1) {
-            Utilities.setAlert(3);
-        } else { 
-            //new ModifyFrame().setVisible(true);
-            JOptionPane.showMessageDialog(null, "coming soon!");
-        }    
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     @Override
     public void run() {
         try {
@@ -288,7 +266,6 @@ public final class Main extends javax.swing.JFrame implements Runnable {
     public javax.swing.JButton buttonNewAupair;
     private javax.swing.JButton buttonNewFamily;
     private javax.swing.ButtonGroup group;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

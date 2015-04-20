@@ -90,6 +90,7 @@ public class AupairFrame extends javax.swing.JFrame {
         spokenAbilityComboBox = new javax.swing.JComboBox();
         completeLabel = new java.awt.Label();
         buttonMainMenu = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -426,6 +427,13 @@ public class AupairFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Modify existing aupair records");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -442,7 +450,10 @@ public class AupairFrame extends javax.swing.JFrame {
                                 .addComponent(completeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(completeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(completeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -460,7 +471,9 @@ public class AupairFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonMainMenu)
                             .addComponent(completeButton))
-                        .addGap(117, 117, 117))
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton1)
+                        .addGap(62, 62, 62))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -532,13 +545,14 @@ public class AupairFrame extends javax.swing.JFrame {
         }     
     }
     
-    public void inputCheck() {
-        
-    }
-        
+
     private void buttonMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMainMenuActionPerformed
             setVisible(false);          
     }//GEN-LAST:event_buttonMainMenuActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new AupairFramePanel().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
@@ -604,6 +618,7 @@ public class AupairFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox flexibleComboBox;
     private javax.swing.JComboBox houseworkComboBox;
     private java.awt.TextField houseworkTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
